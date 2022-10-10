@@ -1,0 +1,45 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://progML/team"
+           targetNamespace="http://progML/team" elementFormDefault="qualified">
+
+
+    <xs:element name="getCreateTeamRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCreateTeamResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="state" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAddTeamRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="heroId" type="xs:long"/>
+                <xs:element name="humanBeing" type="tns:humanBeingDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="humanBeingDto">
+        <xs:sequence>
+            <xs:element name="teamName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getAddTeamResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="state" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

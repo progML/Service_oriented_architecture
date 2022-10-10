@@ -1,0 +1,81 @@
+$console-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='%23CCC' d='M285 273 91 467c-9 10-24 10-34 0l-22-22c-10-10-10-25-1-34l155-155L34 101c-9-9-9-24 1-34l22-22c10-10 25-10 34 0l194 194c10 9 10 25 0 34z'/%3E%3C/svg%3E");
+$zindex-fixed: 999;
+
+body:last-child {
+	margin-bottom: 100px;
+}
+
+.console-container {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	font-size: 18px;
+	color: #CCC;
+	padding: 7px 7px 7px 12px;
+	font-family: "Consolas", serif;
+	z-index: 999;
+
+	//background: #222 $console-arrow no-repeat 7px center;
+	//background-size: 15px;
+	background: rgba(#222, .9);
+	backdrop-filter: blur(5px);
+
+	&:before {
+		content: ">";
+		font-weight: bold;
+	}
+}
+
+.sortable {
+	cursor: pointer;
+	user-select: none;
+}
+
+.application.still-loading {
+	.btn.loadable {
+		opacity: .9;
+		cursor: progress;
+	}
+
+	.loading-wrapper {
+		&:after {
+			display: block;
+		}
+	}
+
+	.loading-marker {
+		height: 4px;
+	}
+}
+
+.loading-wrapper {
+	position: relative;
+
+	&:after {
+		z-index: 1;
+
+		content: '';
+		display: none;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(255, 255, 255, .8);
+	}
+}
+
+.loading-marker {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 0;
+	background: var(--bs-primary);
+	transition: height .1s ease-in-out;
+	animation: placeholder-glow 2s ease-in-out infinite;
+}

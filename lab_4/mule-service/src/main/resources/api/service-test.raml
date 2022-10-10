@@ -1,0 +1,45 @@
+#%RAML 1.0
+title: soa-lab-4
+mediaType:
+  - application/json
+protocols:
+  - HTTP
+baseUri: "api"
+version: "2.0"
+/team/create/{teamName}:
+  get:
+    displayName: create Team
+    responses:
+      200:
+        body:
+          type: object
+      404:
+        body:
+          type: object
+    securedBy: []
+  uriParameters:
+    teamName:
+      type: string
+/team/add/{userId}: 
+  post:
+    displayName: add Team
+    body:
+      application/json:
+        type: humanBeingDto
+    responses:
+      200:
+        body:
+          type: object
+      404:
+        body:
+          type: object
+    securedBy: []
+  uriParameters:
+    userId:
+      type: number
+      format: int
+types:
+  humanBeingDto:
+    properties:
+      teamName:
+        type: string    
